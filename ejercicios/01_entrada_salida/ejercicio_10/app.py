@@ -40,7 +40,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        txt_importe_texto = self.txt_importe.get()
+        txt_descuento_numero = self.txt_descuento()
+        txt_importe_numero = float(txt_importe_texto)
+        txt_descuento_numero = float(txt_descuento_texto)
         
     
 if __name__ == "__main__":
