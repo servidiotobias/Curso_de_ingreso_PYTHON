@@ -48,13 +48,40 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        txt_importe_1_texto = self.txt_importe_1.get()
+        txt_importe_2_texto = self.txt_importe_2.get()
+        txt_importe_3_texto = self.txt_importe_3.get()
+        txt_importe_1_numero = float(txt_importe_1_texto)
+        txt_importe_2_numero = float(txt_importe_2_texto)
+        txt_importe_3_numero = float(txt_importe_3_texto)
+        total_importe = txt_importe_1_numero + txt_importe_2_numero + txt_importe_3_numero
+        mensaje = ("El precio de los tres productos es de {0}").format(total_importe)
+        alert("precio", mensaje)
 
     def btn_promedio_on_click(self):
-        pass
+        txt_importe_1_texto = self.txt_importe_1.get()
+        txt_importe_2_texto = self.txt_importe_2.get()
+        txt_importe_3_texto = self.txt_importe_3.get()
+        txt_importe_1_numero = float(txt_importe_1_texto)
+        txt_importe_2_numero = float(txt_importe_2_texto)
+        txt_importe_3_numero = float(txt_importe_3_texto)
+        total_importe = txt_importe_1_numero + txt_importe_2_numero + txt_importe_3_numero
+        promedio_importe = total_importe // 3
+        mensaje = ("El promedio de los tres productos es de {0}").format(promedio_importe)
+        alert("precio", mensaje)
 
     def btn_total_iva_on_click(self):
-        pass      
+        txt_importe_1_texto = self.txt_importe_1.get()
+        txt_importe_2_texto = self.txt_importe_2.get()
+        txt_importe_3_texto = self.txt_importe_3.get()
+        txt_importe_1_numero = float(txt_importe_1_texto)
+        txt_importe_2_numero = float(txt_importe_2_texto)
+        txt_importe_3_numero = float(txt_importe_3_texto)
+        total_importe = txt_importe_1_numero + txt_importe_2_numero + txt_importe_3_numero
+        precio_final_conIVA = total_importe * 21 // 100
+        precio_final_conIVA = total_importe + precio_final_conIVA
+        mensaje = ("El precio final con IVA de los tres productos es de {0}").format(precio_final_conIVA)
+        alert("precio", mensaje)     
     
 if __name__ == "__main__":
     app = App()
