@@ -1,11 +1,18 @@
 import tkinter
+
 from tkinter.messagebox import showinfo as alert
+
 from tkinter.messagebox import askyesno as question
+
 from tkinter.simpledialog import askstring as prompt
+
 import customtkinter
 
+
 '''
+
 nombre:
+
 apellido:
 ---
 Ejercicio: instrucion_if_07
@@ -43,7 +50,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        txt_edad = self.txt_edad.get()
+        txt_edad_numero = int(txt_edad)
+        combobox_tipo = self.combobox_tipo.get()
+        
+        if(txt_edad_numero < 10):
         
         
     
