@@ -63,7 +63,24 @@ class App(customtkinter.CTk):
         self.btn_calcular.grid(row=3, pady=10, columnspan=2, sticky="nsew")
 
     def btn_calcular_on_click(self):
-        pass
+        txt_largo = self.txt_largo.get()
+        txt_ancho = self.txt_ancho.get()
+        txt_largo_numero = float(txt_largo)
+        txt_ancho_numero = float(txt_ancho)
+        metros_cuadrados = txt_largo_numero * txt_ancho_numero
+        metros_lineales = txt_largo_numero * 4
+        mensaje = ("los metros cuadrados son {0} y los metros lineales son {1}").format(metros_cuadrados, metros_lineales)
+        alert("metros", mensaje)
+        Poste_de_quebracho_grueso = txt_largo_numero // 250 * 4 + 4
+        Poste_de_quebracho_fino = txt_largo_numero // 12 * 4
+        mensaje_2 = ("la cantidad de postes de quebracho grueso es de {0} y de postes de quebracho fino es de {1}").format(Poste_de_quebracho_grueso, Poste_de_quebracho_fino)
+        alert("calculos", mensaje_2)
+        varillas = txt_largo_numero // 2 * 4
+        mensaje_3 = ("la cantidad de varillas es de {0}").format(varillas)
+        alert("varillas", mensaje_3)
+        alambre_alta_resistencia = metros_lineales * 7
+        mensaje_4 = ("la cantidad de alambre de alta resistencia es de {0}").format(alambre_alta_resistencia)
+        alert("almbre de alta resistencia", mensaje_4)
 
 
 if __name__ == "__main__":
