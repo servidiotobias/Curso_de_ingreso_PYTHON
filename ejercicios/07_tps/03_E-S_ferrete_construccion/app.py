@@ -68,14 +68,14 @@ class App(customtkinter.CTk):
         txt_largo_numero = float(txt_largo)
         txt_ancho_numero = float(txt_ancho)
         metros_cuadrados = txt_largo_numero * txt_ancho_numero
-        metros_lineales = txt_largo_numero * 4
+        metros_lineales = (txt_ancho_numero + txt_largo_numero) * 2
         mensaje = ("los metros cuadrados son {0} y los metros lineales son {1}").format(metros_cuadrados, metros_lineales)
         alert("metros", mensaje)
-        Poste_de_quebracho_grueso = txt_largo_numero // 250 * 4 + 4
-        Poste_de_quebracho_fino = txt_largo_numero // 12 * 4
+        Poste_de_quebracho_grueso = txt_largo_numero // 250 * 2 + 4 + txt_ancho_numero // 250 * 2
+        Poste_de_quebracho_fino = txt_largo_numero // 12 * 2 + txt_ancho_numero // 12 * 2 - 4
         mensaje_2 = ("la cantidad de postes de quebracho grueso es de {0} y de postes de quebracho fino es de {1}").format(Poste_de_quebracho_grueso, Poste_de_quebracho_fino)
         alert("calculos", mensaje_2)
-        varillas = txt_largo_numero // 2 * 4
+        varillas = txt_largo_numero // 2 * 2 + txt_ancho_numero // 2 * 2
         mensaje_3 = ("la cantidad de varillas es de {0}").format(varillas)
         alert("varillas", mensaje_3)
         alambre_alta_resistencia = metros_lineales * 7
