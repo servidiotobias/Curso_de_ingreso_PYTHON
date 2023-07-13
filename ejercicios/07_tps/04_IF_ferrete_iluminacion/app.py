@@ -38,11 +38,40 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        Marca = self.combobox_marca.get()
-        Cantidad = self.combobox_cantidad.get()
-        Cantidad_numero = int(Cantidad)
+        marca = self.combobox_marca.get()
+        cantidad = self.combobox_cantidad.get()
+        cantidad_numero = int(cantidad)
         precio = 800
-        
+        descuento = None
+        importe = 0
+ #forma 2
+        if cantidad_numero >=6:
+            descuento = 0.5
+        elif cantidad_numero ==5:
+            if marca == "ArgentinaLuz":
+                 descuento = 0.4
+            else:
+                descuento = 0.3
+        elif cantidad_numero ==4:
+            if marca == "ArgentinaLuz" or "FelipeLamparas":
+                 descuento = 0.25
+            else:
+                descuento = 0.2
+        elif cantidad_numero ==3:
+            if marca == "ArgentinaLuz":
+                 descuento = 0.15
+                 if marca == "FelipeLamparas":
+                    descuento = 0.1
+            else:
+                descuento = 0.05  
+        if importe >= 4000:
+             (importe + descuento) *0.05    
+        importe_final = precio * cantidad_numero * descuento
+        mensaje = "el importe final es de {0}".format(importe_final) 
+        alert("precio", mensaje)                  
+
+'''
+   forma 1
         if(Cantidad_numero >= 6):
             total = (precio*Cantidad_numero)/2
             mensaje = "el precio total es de {0}".format(total)
@@ -69,12 +98,22 @@ class App(customtkinter.CTk):
                      total = (precio*Cantidad_numero)*0.05
                      mensaje = "el precio total es de {0}".format(total)     
  
-        if(total <= 4000):
+        if(total >= 4000):
             total = (Cantidad_numero*precio)*0.05
-        
         alert("precio", mensaje)
+   
+'''        
 
-    
+          
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
