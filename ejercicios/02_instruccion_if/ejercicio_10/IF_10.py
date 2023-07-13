@@ -33,7 +33,19 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass  
+        numero = random.randrange(1,10)
+        numero = int(numero)
+        if(numero <= 3):
+            mensaje = "desaprobado la nota es {0}".format(numero)
+
+        if(numero >= 4 and numero <= 5):
+            mensaje = "aprobado, la nota es {0}".format(numero)
+
+        if(numero >= 6 and numero <= 10):
+            mensaje = "promocion dierecta, la nota es {0}".format(numero)
+
+        alert("nota", mensaje)        
+
             
 
 if __name__ == "__main__":
