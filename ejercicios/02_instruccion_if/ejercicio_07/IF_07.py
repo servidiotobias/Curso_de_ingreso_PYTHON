@@ -51,10 +51,9 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         txt_edad = self.txt_edad.get()
-        txt_edad_numero = int(txt_edad)
         combobox_tipo = self.combobox_tipo.get()
+        txt_edad_numero = int(txt_edad)
         
-        if(txt_edad_numero < 10):
         
         
     
