@@ -44,6 +44,36 @@ class App(customtkinter.CTk):
         precio = 800
         descuento = None
         importe = 0
+
+ #forma match
+        match cantidad:
+            case 6 | 7 | 8 | 9 | 10 | 11 | 12:
+                descuento = 0.5
+            case 5:
+                if marca == "ArgentinaLuz":
+                    descuento = 0.4
+                else:
+                    descuento = 0.3
+            case 4:
+                if marca == "ArgentinaLuz" or "FelipeLamparas":
+                    descuento = 0.25
+                else:
+                    descuento = 0.2
+            case 3: 
+                if marca == "ArgentinaLuz":
+                    descuento = 0.15
+                    if marca == "FelipeLamparas":
+                        descuento = 0.1
+                    else:
+                        descuento = 0.05
+                if importe >= 4000:
+                    (importe + descuento) *0.05 
+                       
+        importe_final = precio * cantidad_numero * descuento
+        mensaje = "el importe final es de {0}".format(importe_final) 
+        alert("precio", mensaje)            
+
+'''                 
  #forma 2
         if cantidad_numero >=6:
             descuento = 0.5
@@ -69,7 +99,7 @@ class App(customtkinter.CTk):
         importe_final = precio * cantidad_numero * descuento
         mensaje = "el importe final es de {0}".format(importe_final) 
         alert("precio", mensaje)                  
-
+'''
 '''
    forma 1
         if(Cantidad_numero >= 6):
