@@ -14,7 +14,6 @@ Todas las lámparas están  al mismo precio de $800 pesos final.
 '''
 
 class App(customtkinter.CTk):
-    
     def __init__(self):
         super().__init__() 
 
@@ -42,10 +41,10 @@ class App(customtkinter.CTk):
         cantidad = self.combobox_cantidad.get()
         cantidad_numero = int(cantidad)
         precio = 800
-        descuento = None
+        descuento = 0
         importe = 0
 
- #forma match
+#forma match
         match cantidad:
             case 6 | 7 | 8 | 9 | 10 | 11 | 12:
                 descuento = 0.5
@@ -67,14 +66,14 @@ class App(customtkinter.CTk):
                     else:
                         descuento = 0.05
                 if importe >= 4000:
-                    (importe + descuento) *0.05 
-                       
-        importe_final = precio * cantidad_numero * descuento
+                    (importe + descuento) *0.05             
+        importe_final = (precio * cantidad_numero) - (precio * cantidad_numero * descuento)
         mensaje = "el importe final es de {0}".format(importe_final) 
         alert("precio", mensaje)            
 
 '''                 
- #forma 2
+
+#forma 2
         if cantidad_numero >=6:
             descuento = 0.5
         elif cantidad_numero ==5:
@@ -96,12 +95,13 @@ class App(customtkinter.CTk):
                 descuento = 0.05  
         if importe >= 4000:
              (importe + descuento) *0.05    
-        importe_final = precio * cantidad_numero * descuento
+        importe_final = (precio * cantidad_numero) - (precio * cantidad_numero * descuento)
         mensaje = "el importe final es de {0}".format(importe_final) 
         alert("precio", mensaje)                  
+
 '''
 '''
-   forma 1
+#forma 1
         if(Cantidad_numero >= 6):
             total = (precio*Cantidad_numero)/2
             mensaje = "el precio total es de {0}".format(total)
@@ -130,20 +130,9 @@ class App(customtkinter.CTk):
  
         if(total >= 4000):
             total = (Cantidad_numero*precio)*0.05
-        alert("precio", mensaje)
-   
+        alert("precio", mensaje)  
 '''        
-
-          
-
-
-
-
-
-
-
-
-
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
