@@ -38,67 +38,66 @@ class App(customtkinter.CTk):
 
     def btn_calcular_on_click(self):
         marca = self.combobox_marca.get()
-        cantidad = self.combobox_cantidad.get()
-        cantidad_numero = int(cantidad)
+        cantidad_numero = self.combobox_cantidad.get()
+        cantidad_numero = int(cantidad_numero)
         precio = 800
-        descuento = 0
-        importe = 0
-
 #forma match
-        match cantidad:
-            case 6 | 7 | 8 | 9 | 10 | 11 | 12:
-                descuento = 0.5
+        match cantidad_numero:
+            case 6:
+                descuento = 0.50
             case 5:
                 if marca == "ArgentinaLuz":
-                    descuento = 0.4
+                    descuento = 0.40
                 else:
-                    descuento = 0.3
+                    descuento = 0.30
             case 4:
                 if marca == "ArgentinaLuz" or "FelipeLamparas":
                     descuento = 0.25
                 else:
-                    descuento = 0.2
+                    descuento = 0.20
             case 3: 
                 if marca == "ArgentinaLuz":
                     descuento = 0.15
                     if marca == "FelipeLamparas":
-                        descuento = 0.1
+                        descuento = 0.10
                     else:
                         descuento = 0.05
-                if importe >= 4000:
-                    (importe + descuento) *0.05             
-        importe_final = (precio * cantidad_numero) - (precio * cantidad_numero * descuento)
+            case 2 | 1:
+                descuento = 0  
+            case _:
+                descuento = 0.50                   
+        importe_final = (precio * cantidad_numero) - (precio * cantidad_numero * descuento)               
+        if importe_final >= 4000:
+            importe_final  * 0.95           
         mensaje = "el importe final es de {0}".format(importe_final) 
-        alert("precio", mensaje)            
+        alert("precio", mensaje)  
 
-'''                 
-
+'''             
 #forma 2
         if cantidad_numero >=6:
             descuento = 0.5
         elif cantidad_numero ==5:
             if marca == "ArgentinaLuz":
-                 descuento = 0.4
+                 descuento = 0.40
             else:
-                descuento = 0.3
+                descuento = 0.30
         elif cantidad_numero ==4:
             if marca == "ArgentinaLuz" or "FelipeLamparas":
                  descuento = 0.25
             else:
-                descuento = 0.2
+                descuento = 0.20
         elif cantidad_numero ==3:
             if marca == "ArgentinaLuz":
                  descuento = 0.15
                  if marca == "FelipeLamparas":
-                    descuento = 0.1
+                    descuento = 0.10
             else:
-                descuento = 0.05  
-        if importe >= 4000:
-             (importe + descuento) *0.05    
-        importe_final = (precio * cantidad_numero) - (precio * cantidad_numero * descuento)
+                descuento = 0.05
+        importe_final = (precio * cantidad_numero) - (precio * cantidad_numero *descuento)        
+        if importe_final >= 4000:
+             (importe_final + descuento) *0.05   
         mensaje = "el importe final es de {0}".format(importe_final) 
         alert("precio", mensaje)                  
-
 '''
 '''
 #forma 1
@@ -106,30 +105,30 @@ class App(customtkinter.CTk):
             total = (precio*Cantidad_numero)/2
             mensaje = "el precio total es de {0}".format(total)
             if(Cantidad_numero == 5 and "ArgentinaLuz"):
-                 total = (precio*Cantidad_numero)*0.40
+                 total = (precio*Cantidad_numero)*0.60
                  mensaje = "el precio total es de {0}".format(total)
         else:
-             total = (precio*Cantidad_numero)*0.30
+             total = (precio*Cantidad_numero)*0.70
              mensaje = "el precio total es de {0}".format(total)    
              if(Cantidad_numero == 4):
                  if(Marca == "ArgentinaLuz" or "FelipeLamparas"):
-                     total = (precio*Cantidad_numero)*0.25
+                     total = (precio*Cantidad_numero)*0.75
                      mensaje = "el precio total es de {0}".format(total)
              else:
-                total = (precio*Cantidad_numero)*0.20
+                total = (precio*Cantidad_numero)*0.80
                 mensaje = "el precio total es de {0}".format(total)
                 if(Cantidad_numero == 3 and "ArgentinaLuz"):
-                     total = (precio*Cantidad_numero)*0.15
+                     total = (precio*Cantidad_numero)*0.85
                      mensaje = "el precio total es de {0}".format(total)
                      if(Cantidad_numero == 3 and "FelipeLamparas"):
-                         total = (precio * Cantidad_numero)*0.10
+                         total = (precio * Cantidad_numero)*0.90
                          mensaje = "el precio total es de {0}".format(total)
                 else:
-                     total = (precio*Cantidad_numero)*0.05
+                     total = (precio*Cantidad_numero)*0.95
                      mensaje = "el precio total es de {0}".format(total)     
  
         if(total >= 4000):
-            total = (Cantidad_numero*precio)*0.05
+            total = (Cantidad_numero*precio)*0.95
         alert("precio", mensaje)  
 '''        
         
