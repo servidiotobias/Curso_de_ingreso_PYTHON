@@ -28,7 +28,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        mensaje = " esto no anda funciona"
+        alert("mensaje", mensaje)
         
 
 if __name__ == "__main__":
