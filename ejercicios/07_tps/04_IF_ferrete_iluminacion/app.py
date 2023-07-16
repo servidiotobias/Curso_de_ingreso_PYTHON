@@ -95,7 +95,7 @@ class App(customtkinter.CTk):
                 descuento = 0.05
         importe_final = (precio * cantidad_numero) - (precio * cantidad_numero *descuento)        
         if importe_final >= 4000:
-             (importe_final + descuento) *0.05   
+             importe_final * 0.95   
         mensaje = "el importe final es de {0}".format(importe_final) 
         alert("precio", mensaje)                  
 '''
