@@ -52,7 +52,48 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        destino = self.combobox_destino.get()
+        estacion = self.combobox_estaciones.get()
+        precio = 15000
+        total = None
+        match estacion:
+            case "Invierno":
+                if  destino == "Bariloche":
+                    total = precio * 20 / 100 + precio
+                    mensaje = "el precio es de {0}".format(total)
+                if  destino == "Cataratas" and destino == "Córdoba":
+                    total = precio - precio * 10 / 100
+                    mensaje = "el precio es de {0}".format(total)
+                if  destino == "Mar del plata":
+                    total = precio - precio * 20 / 100
+                    mensaje = "el precio es de {0}".format(total) 
+            case "Verano":
+                if  destino == "Bariloche":
+                    total = precio - precio * 20 / 100
+                    mensaje = "el precio es de {0}".format(total)
+                if  destino == "Cataratas" and destino == "Córdoba":
+                    total = precio * 10 / 100 + precio 
+                    mensaje = "el precio es de {0}".format(total)
+                if  destino == "Mar del plata":
+                    total = precio * 20 / 100 + precio
+                    mensaje = "el precio es de {0}".format(total)
+            case "Primavera" | "Otoño":
+                if  destino == "Bariloche":
+                    total = precio * 10 / 100 + precio
+                    mensaje = "el precio es de {0}".format(total)
+                if  destino == "Cataratas":
+                    total = precio * 10 / 100 + precio
+                    mensaje = "el precio es de {0}".format(total)
+                if  destino == "Mar del plata":
+                    total = precio * 10 / 100 + precio
+                    mensaje = "el precio es de {0}".format(total) 
+                if  destino == "Córdoba":
+                    total = precio 
+                    mensaje = "el precio es de {0}".format(total)      
+        alert("precio", mensaje)            
+
+
+
             
     
 if __name__ == "__main__":
