@@ -24,8 +24,13 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
-    
+        flag_continuar = True
+        contador = 0
+        lista_numeros = [1,2,3,4,5,6,7,8,9,10]
+        cantidad_numeros = len(lista_numeros)
+        while contador < cantidad_numeros:
+            alert("numeros", lista_numeros[contador])
+            contador = contador + 1
     
 if __name__ == "__main__":
     app = App()

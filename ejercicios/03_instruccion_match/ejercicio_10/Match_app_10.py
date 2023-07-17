@@ -65,7 +65,7 @@ class App(customtkinter.CTk):
                     mensaje = "Se viaja"
         alert("Destino", mensaje)                                        
             
-    
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
