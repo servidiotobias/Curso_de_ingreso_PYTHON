@@ -25,7 +25,14 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_letra_on_click(self):
-        pass
+        letras = prompt(title="insertar", prompt="insertar letra")
+        while True:
+            if letras != "U" and letras != "T" and letras != "N":
+                pass
+            else:
+                letras = prompt(title="insertar", prompt="insertar letra")
+                print("insertar letras de nuevo")
+
             
     
 if __name__ == "__main__":
