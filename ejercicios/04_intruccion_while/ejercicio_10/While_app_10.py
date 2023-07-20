@@ -59,10 +59,10 @@ class App(customtkinter.CTk):
 
         mensaje = "la suma acumulada de los negativos es {0}".format(suma_negativos)
         mensaje = mensaje + "la suma acumulada de los positivos es {0}".format(suma_positivos)                
-        mensaje = mensaje + " cantidad de numeros positivos ingresados{0}".format(numeros_positivos)
-        mensaje = mensaje + " cantidad de numeros negativos ingresados{0}".format(numeros_negativos)
-        mensaje = mensaje + " cantidad de ceros{0}".format(cantidad_0)
-        mensaje = mensaje + " diferencia entre la cantidad de los numeros positivos ingresados y negativos{0}".format(diferencia_positivos_negativos)
+        mensaje = mensaje + " cantidad de numeros positivos ingresados {0}".format(numeros_positivos)
+        mensaje = mensaje + " cantidad de numeros negativos ingresados {0}".format(numeros_negativos)
+        mensaje = mensaje + " cantidad de ceros {0}".format(cantidad_0)
+        mensaje = mensaje + " diferencia entre la cantidad de los numeros positivos ingresados y negativos {0}".format(diferencia_positivos_negativos)
 
         alert("datos", mensaje)
 
