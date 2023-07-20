@@ -50,39 +50,43 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        contador = 0
-        apellido = ""
-        estado_civil = ""
-        edad = 0
-        numero_de_legajo = 0
-        dato_ingresado = ""
-        bandera_primera_vez = True
+        apellido = prompt("tp10", "ingrese apellido")
 
-        while contador < 4:
-            contador += 1
-            dato_ingresado = prompt("tp5", "ingresar datos")
-
-            if dato_ingresado is str:
-                apellido = dato_ingresado
-            elif dato_ingresado is int:
-                dato_ingresado = int(dato_ingresado)
-                if bandera_primera_vez == True:
-                    edad = dato_ingresado
-                    numero_de_legajo = dato_ingresado
-                    bandera_primera_vez = False
-                if edad >= 18 and edad <= 90: 
-                    edad = dato_ingresado 
-                    edad += 1
-                else:
-                    numero_de_legajo = dato_ingresado
-                    numero_de_legajo += 1
+        while apellido == None and apellido == "" or not apellido.isalpha():
+            apellido = prompt("tp10", "ingrese apellido nuevamente")
         
-        self.txt_apellido.delete(0,100)
-        self.txt_apellido.insert(0,apellido)
-        self.txt_edad.delete(0,100)
-        self.txt_edad.insert(0,edad)
-        self.txt_legajo.delete(0,100)
-        self.txt_legajo.insert(0,numero_de_legajo)
+        edad = prompt("tp10", "ingresa edad")
+        while edad == None or not edad.isdigit() or int(edad) < 18 or int(edad) > 90:
+            edad = prompt("tp10", "ingresa edad nuevamente")
+        edad = int(edad)
+
+        estado_civil = prompt("Titulo", "Ingrese su estado civil").capitalize()
+        while (estado_civil == None or not estado_civil.isalpha()) or estado_civil != "Soltero" and estado_civil != "Soltera" and estado_civil != "Casado" and estado_civil != "Casada" and estado_civil != "Divorciado" and estado_civil != "Divorciada" and estado_civil != "Viudo" and estado_civil != "Viuda" :
+            estado_civil = prompt("Titulo", "ReIngrese su estado civil [ Soltero/a, Divorciado/a, Casado/a, Viudo/a]")
+        
+        if estado_civil == "Soltero" or estado_civil == "Soltera":
+            estado_civil = "Soltero/a"
+        elif estado_civil == "Casado" or estado_civil == "Casada":
+            estado_civil = "Casado/a"
+        elif estado_civil == "Divorciado" or estado_civil == "Divorciada":
+            estado_civil = "Divorciado/a"
+        else:
+            estado_civil = "Viudo/a"
+
+        legajo = prompt(title="legajo",prompt= "ingrese su legajo")
+        while legajo == None or not legajo.isdigit() or int(legajo) < 1000 or int(legajo) > 9999:
+            legajo = prompt(title="legajo",prompt= "ingrese una legajo valida")
+        legajo = int(legajo)
+
+        self.txt_apellido.delete(0, tkinter.END)
+        self.txt_apellido.insert(0, apellido)
+        self.txt_edad.delete(0, tkinter.END)
+        self.txt_edad.insert(0, edad)
+        self.combobox_tipo.set(estado_civil)
+        self.txt_legajo.delete(0, tkinter.END)
+        self.txt_legajo.insert(0, legajo)
+
+
 
 
 if __name__ == "__main__":

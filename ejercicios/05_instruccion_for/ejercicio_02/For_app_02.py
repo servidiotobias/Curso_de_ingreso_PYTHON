@@ -23,7 +23,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass    
+        lista_numeros = range(5,1)
+
+        for lista_numeros in reversed(range(5)):
+            alert("numeros", f"{lista_numeros + 1}")   
        
             
 

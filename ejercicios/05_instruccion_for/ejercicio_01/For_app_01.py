@@ -23,7 +23,16 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass 
+        #numero = 1
+
+       # while numero < 6:
+         #   numero += 1
+       # alert ("datos", f"{numero}")    
+      # lista_numero = list(range(1,6))
+       #lista_nimbre = ["Franco", "Alejo", "Ale"]
+
+       for numero in range(5):
+        alert("numeros", f"{numeros + 1}")
        
             
 
