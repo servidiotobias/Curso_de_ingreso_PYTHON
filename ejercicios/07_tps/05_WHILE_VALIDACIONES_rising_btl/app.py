@@ -50,7 +50,39 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        contador = 0
+        apellido = ""
+        estado_civil = ""
+        edad = 0
+        numero_de_legajo = 0
+        dato_ingresado = ""
+        bandera_primera_vez = True
+
+        while contador < 4:
+            contador += 1
+            dato_ingresado = prompt("tp5", "ingresar datos")
+
+            if dato_ingresado is str:
+                apellido = dato_ingresado
+            elif dato_ingresado is int:
+                dato_ingresado = int(dato_ingresado)
+                if bandera_primera_vez == True:
+                    edad = dato_ingresado
+                    numero_de_legajo = dato_ingresado
+                    bandera_primera_vez = False
+                if edad >= 18 and edad <= 90: 
+                    edad = dato_ingresado 
+                    edad += 1
+                else:
+                    numero_de_legajo = dato_ingresado
+                    numero_de_legajo += 1
+        
+        self.txt_apellido.delete(0,100)
+        self.txt_apellido.insert(0,apellido)
+        self.txt_edad.delete(0,100)
+        self.txt_edad.insert(0,edad)
+        self.txt_legajo.delete(0,100)
+        self.txt_legajo.insert(0,numero_de_legajo)
 
 
 if __name__ == "__main__":
