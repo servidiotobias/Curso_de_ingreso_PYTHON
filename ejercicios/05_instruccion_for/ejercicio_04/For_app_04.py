@@ -21,9 +21,13 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
         
-    
+        for _ in range (10000):
+            numero = prompt (" for Infinito", "Ingrese un numero")
+
+            if numero == "9":
+                break
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

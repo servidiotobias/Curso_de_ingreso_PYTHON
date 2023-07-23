@@ -27,10 +27,16 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        for nombre in (self.lista_datos):
+            alert("ej4", nombre)
         
+            
+  
     def btn_cargar_on_click(self):
-        pass
+        for _ in range(3):
+            numeros = prompt("ej4", "ingrese numeros")
+            self.lista_datos = list(numeros)
+            
     
 if __name__ == "__main__":
     app = App()

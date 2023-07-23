@@ -24,10 +24,25 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-        
-    
+        for nombre in self.lista_datos:
+            print (nombre)
+
+"""
+list.append(x): Agrega un elemento x al final de la lista.
+list.remove(x): Elimina la primera aparición del elemento x de la lista.
+list.pop([i]): Elimina y devuelve el elemento en la posición i de la lista. Si no se especifica i, se eliminará y devolverá el último elemento.
+list.clear(): Elimina todos los elementos de la lista, dejándola vacía.
+list.index(x[, start[, end]]): Devuelve el índice de la primera aparición del elemento x. Puedes proporcionar un rango opcional start y end para buscar
+list.index(x[, start[, end]]): Devuelve el índice de la primera aparición del elemento x. Puedes proporcionar un rango opcional start y end para buscar dentro de una subsección de la lista.
+list.count(x): Devuelve el número de apariciones del elemento x en la lista.
+list.reverse(): Invierte el orden de los elementos en la lista.
+len(list): Devuelve la longitud (número de elementos) de la lista.
+"""
+"""
+      lista_numero = list(1,2,3,4,5,6)
+      lista_numero.
+"""        
+     
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
