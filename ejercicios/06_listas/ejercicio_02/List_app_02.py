@@ -33,9 +33,14 @@ class App(customtkinter.CTk):
             
   
     def btn_cargar_on_click(self):
+        self.lista_datos.clear()
         for _ in range(3):
             numeros = prompt("ej2", "ingrese numeros")
-            self.lista_datos.append(numeros)
+
+            while numeros == None or not numeros.isdigit():
+                numeros = prompt("ej2", "ingrese numeros")
+
+            self.lista_datos.append(int(numeros))
             
     # ingresar datos en una lista 
 if __name__ == "__main__":

@@ -22,6 +22,19 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         numero_pedidio = prompt("ej8", "ingresar un numero")
+        while numero_pedido == None or not numero_pedido.isdigit():
+            numero_pedido= prompt("IMPORTANTE", "Reingrese su numero")
+
+        numero_pedidio = int(numero_pedidio)    
+        numero_pedidio = numero_pedidio / 2
+
+        for _ in range(1, numero_pedido + 1):
+            if numero_pedido % _ == 0:
+                contador = contador + 1  
+                print(_)
+
+        
+
     
 if __name__ == "__main__":
     app = App()
