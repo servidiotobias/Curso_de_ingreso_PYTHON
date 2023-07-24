@@ -21,7 +21,7 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero_pedidio = prompt("ej8", "ingresar un numero")
     
 if __name__ == "__main__":
     app = App()

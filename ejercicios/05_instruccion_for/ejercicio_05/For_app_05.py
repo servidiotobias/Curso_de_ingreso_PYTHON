@@ -26,6 +26,8 @@ class App(customtkinter.CTk):
             respuesta = question("ej 5", "desea continuar? (si/no)")
             if respuesta == False:
                break
+            if True:
+                continue
     
         
     
