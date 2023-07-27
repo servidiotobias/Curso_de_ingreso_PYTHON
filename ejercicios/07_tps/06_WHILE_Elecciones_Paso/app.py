@@ -29,19 +29,62 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-
-        nombre = prompt("tp10", "ingrese nombre")
-
-        while candidato == None and apellido == "" or not apellido.isalpha():
-            nombre = prompt("tp10", "ingrese nombre nuevamente")
+        maximo_votos = 0
+        nombre_maximo_votos = ""
+        minimo_votos = 0
+        nombre_minimo_votos = ""
+        edad_menos_votos = 0
+        acumulador_edad = 0
+        edad_promedio = 0
+        cantidad_candidato = 0
+        total_votos = 0
         
-        edad = prompt("tp10", "ingresa edad")
-        while edad == None or not edad.isdigit() or int(edad) < 18 or int(edad) > 90:
-            edad = prompt("tp10", "ingresa edad nuevamente")
-        edad = int(edad)
+        while True:
+            nombre = prompt("tp10", "ingrese nombre")
+            while nombre == None and nombre == "" or not nombre.isalpha():
+                nombre = prompt("tp10", "ingrese nombre nuevamente")
+                
+            edad = prompt("tp10", "ingresa edad")
+            while edad == None or not edad.isdigit() or int(edad) < 25 or int(edad) > 90:
+                edad = prompt("tp10", "ingresa edad nuevamente")
+            edad = int(edad)
+            acumulador_edad += edad
 
+            cantidad_votos = prompt("votos", "ingresar cantidad de votos")
+            while cantidad_votos == None or not cantidad_votos.isdigit() or int(cantidad_votos) <=0 : 
+                cantidad_votos = prompt("votos", "volver a ingresar cantidad de votos")
+            cantidad_votos = int(cantidad_votos)    
 
+            total_votos = total_votos + cantidad_votos
+
+            if maximo_votos == None and minimo_votos == None:
+                maximo_votos = cantidad_votos
+                minimo_votos = cantidad_votos
+                
+            if cantidad_votos > maximo_votos:
+                maximo_votos = cantidad_votos    
+                nombre_maximo_votos = nombre
+
+            elif cantidad_votos < maximo_votos:
+                minimo_votos = cantidad_votos
+                edad_menos_votos = edad
+                nombre_minimo_votos = nombre
+
+            respuesta = question("ej 5", "desea continuar? (si/no)")    
+            if respuesta == False:
+               break   
+
+            cantidad_candidato += 1
+
+            edad_promedio = acumulador_edad / cantidad_candidato
+        print(f"el cantidato con mas votos es {nombre_maximo_votos} con {maximo_votos} votos")    
+        print(f"el cantidato con menos votos es {nombre_minimo_votos} con {minimo_votos} votos y edad de {edad_menos_votos}")   
+        print(f"el promedio de edades es de {edad_promedio}")
+        print(f"el total de votos emitidos son {total_votos}")
+
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+ 
